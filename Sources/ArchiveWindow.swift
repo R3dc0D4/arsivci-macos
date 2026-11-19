@@ -449,22 +449,31 @@ final class ArchiveWindowController: NSWindowController, NSWindowDelegate, NSMen
         }
     }
 
+    /// Seçim varsa yalnız seçilen öğeleri; seçim yoksa tüm arşivi çıkart.
+    /// Üst araç çubuğu ve Dosya menüsü aynı davranışı kullanır.
+    private func extractionNames() -> [String]? {
+        let names = selectedPaths()
+        return names.isEmpty ? nil : names
+    }
+
     @objc func extractHere(_ sender: Any?) {
         guard let info else { return }
         let dest = (info.path as NSString).deletingLastPathComponent
-        doExtract(names: nil, dest: dest)
+        doExtract(names: extractionNames(), dest: dest)
     }
 
     @objc func extractToFolder(_ sender: Any?) {
         guard let info else { return }
-        doExtract(names: nil, dest: Ops.folderNamedAfterArchive(info.path))
+        doExtract(names: extractionNames(), dest: Ops.folderNamedAfterArchive(info.path))
     }
 
     @objc func extractTo(_ sender: Any?) {
         guard let info else { return }
+        // Dosya seçimini klasör seçme penceresi açılmadan yakala.
+        let names = extractionNames()
         guard let dest = Dialogs.chooseFolder(title: L("Nereye çıkartılsın?"), prompt: L("Çıkart"),
                                               initial: (info.path as NSString).deletingLastPathComponent) else { return }
-        doExtract(names: nil, dest: dest)
+        doExtract(names: names, dest: dest)
     }
 
     @objc func extractSelectedHere(_ sender: Any?) {
