@@ -77,7 +77,7 @@ enum L10n {
         "Pencere": "Window", "Küçült": "Minimize", "Büyüt": "Zoom", "Tümünü Öne Getir": "Bring All to Front",
         "Finder hızlı eylemleri yüklendi": "Finder Quick Actions installed",
         "%d hızlı eylem kuruldu. Finder'da bir dosyaya sağ tıklayıp \"Hızlı Eylemler\" menüsünden kullanabilirsiniz.": "%d Quick Action(s) installed. Right-click a file in Finder and use the \"Quick Actions\" menu.",
-        "Geliştirici: Mesut Çevik\n": "Developer: Mesut Çevik\n",
+        "Orijinal geliştirici: Mesut Çevik\n": "Original developer: Mesut Çevik\n",
         // Ayarlar
         "Ayarlar": "Settings", "Ayarlar…": "Settings…", "Hızlı sıkıştırma varsayılanları": "Quick compression defaults", "Davranış": "Behaviour",
         "Çıkartma bitince öğeleri Finder'da göster": "Reveal extracted items in Finder", "Sıkıştırma bitince arşivi Finder'da göster": "Reveal the new archive in Finder",
@@ -121,7 +121,7 @@ enum L10n {
         "RAR Aracını Kur…": "Install RAR Tool…",
         "%@ Hakkında": "About %@", "%@'ı Gizle": "Hide %@", "%@'dan Çık": "Quit %@",
         "\n\n7-Zip © Igor Pavlov (GNU LGPL)\nRAR açma: unRAR kodu © Alexander Roshal": "\n\n7-Zip © Igor Pavlov (GNU LGPL)\nRAR extraction: unRAR code © Alexander Roshal",
-        "MacRAR • Hızlı Sıkıştır": "MacRAR • Quick Compress",
+        "Arşivci • Hızlı Sıkıştır": "Arşivci • Quick Compress",
         // Dosya ilişkilendirme
         "Disk görüntüleri: ISO, DMG, VHD, VMDK": "Disk images: ISO, DMG, VHD, VMDK", "Paketler: PKG, JAR, APK, DEB, RPM, MSI": "Packages: PKG, JAR, APK, DEB, RPM, MSI",
         "Önerilmez: çift tıklayınca disk bağlanmaz, arşiv gibi açılır.": "Not recommended: double-clicking will open it as an archive instead of mounting it.",
@@ -139,14 +139,14 @@ enum L10n {
         // Güncelleme
         "Güncellemeleri Denetle…": "Check for Updates…", "Güncelleme denetlenemedi": "Could not check for updates",
         "GitHub'a ulaşılamadı. İnternet bağlantınızı kontrol edin.": "GitHub could not be reached. Check your internet connection.",
-        "Güncel sürümü kullanıyorsunuz": "You are up to date", "MacRAR %@ en son sürüm.": "MacRAR %@ is the latest version.",
-        "MacRAR %@ sürümü çıktı": "MacRAR %@ is available",
+        "Güncel sürümü kullanıyorsunuz": "You are up to date", "Arşivci %@ en son sürüm.": "Arşivci %@ is the latest version.",
+        "Arşivci %@ sürümü çıktı": "Arşivci %@ is available",
         "Kullandığınız sürüm: %@. Yeni sürümü GitHub'dan indirip Uygulamalar klasörüne sürükleyerek güncelleyebilirsiniz.": "You are using version %@. Download the new version from GitHub and drag it into Applications to update.",
         "İndir": "Download", "Daha Sonra": "Later", "Bu Sürümü Atla": "Skip This Version",
         // Hızlı eylemler
-        "MacRAR ile Aç": "Open with MacRAR", "MacRAR: Buraya Çıkart": "MacRAR: Extract Here", "MacRAR: Klasöre Çıkart": "MacRAR: Extract to Folder",
-        "MacRAR ile Sıkıştır…": "Compress with MacRAR…",
-        "MacRAR • Şuraya Çıkart…": "MacRAR • Extract To…", "MacRAR • Test Et": "MacRAR • Test",
+        "Arşivci ile Aç": "Open with Arşivci", "Arşivci: Buraya Çıkart": "Arşivci: Extract Here", "Arşivci: Klasöre Çıkart": "Arşivci: Extract to Folder",
+        "Arşivci ile Sıkıştır…": "Compress with Arşivci…",
+        "Arşivci • Şuraya Çıkart…": "Arşivci • Extract To…", "Arşivci • Test Et": "Arşivci • Test",
         // Sıkıştırma penceresi
         "TAR (sıkıştırmasız)": "TAR (uncompressed)", "Arşiv Oluştur": "Create Archive", "/yol/arşiv.rar": "/path/archive.rar", "Gözat…": "Browse…",
         "Depola (sıkıştırma yok)": "Store (no compression)", "En hızlı": "Fastest", "Hızlı": "Fast", "Normal": "Normal", "İyi": "Good", "En iyi": "Best",

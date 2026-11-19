@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>MacRAR</string>
+	<string>Arşivci</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -14,7 +14,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
-			<string>Owner</string>
+			<string>Alternate</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.rarlab.rar-archive</string>
@@ -37,7 +37,7 @@
 				<string>public.bzip2-archive</string>
 				<string>org.tukaani.xz-archive</string>
 				<string>public.archive</string>
-				<string>com.mesut.macrar.archive</string>
+				<string>com.r3dc0d4.arsivci.archive</string>
 				<string>com.microsoft.cab-archive</string>
 				<string>public.iso-image</string>
 				<string>com.sun.java-archive</string>
@@ -45,24 +45,24 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>MacRAR</string>
+	<string>Arsivci</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.mesut.macrar</string>
+	<string>com.r3dc0d4.arsivci</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
 		<string>tr</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>MacRAR</string>
+	<string>Arşivci</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.4</string>
+	<string>0.1.0</string>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
 	<key>LSMinimumSystemVersion</key>
@@ -70,7 +70,7 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2026 Mesut Çevik · github.com/mstcvk/MacRAR</string>
+	<string>Arşivci contributors · Based on MacRAR © 2026 Mesut Çevik (MIT)</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>UTImportedTypeDeclarations</key>
@@ -207,7 +207,7 @@
 			<key>UTTypeDescription</key>
 			<string>Archive</string>
 			<key>UTTypeIdentifier</key>
-			<string>com.mesut.macrar.archive</string>
+			<string>com.r3dc0d4.arsivci.archive</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

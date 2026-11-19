@@ -329,7 +329,7 @@ final class RarJob {
 
     private var processes: [Process] = []
     private var monitoredTool: RarTool = .sevenZip
-    private let queue = DispatchQueue(label: "macrar.job")
+    private let queue = DispatchQueue(label: "arsivci.job")
     private var buffer = Data()
     private var output = ""
     private(set) var cancelled = false

@@ -52,7 +52,7 @@ enum Installer {
     private static func move(from src: String) throws -> String {
         let fm = FileManager.default
         let dest = "/Applications/" + (src as NSString).lastPathComponent
-        if fm.fileExists(atPath: dest) { try fm.removeItem(atPath: dest) }   // eski sürümün üzerine yaz
+        if fm.fileExists(atPath: dest) { throw CocoaError(.fileWriteFileExists) }   // var olan uygulamanın üzerine yazma
         try fm.copyItem(atPath: src, toPath: dest)
         // Disk görüntüsü salt okunurdur; İndirilenler/Masaüstü'ndeki kopya çöpe gider (çalışan süreç etkilenmez)
         if !src.hasPrefix("/Volumes/") { try? fm.trashItem(at: URL(fileURLWithPath: src), resultingItemURL: nil) }

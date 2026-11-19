@@ -162,7 +162,7 @@ enum Dialogs {
         if archivesOnly {
             var types: [UTType] = [.archive]
             if let t = UTType("com.rarlab.rar-archive") { types.append(t) }
-            if let t = UTType("com.mesut.macrar.archive") { types.append(t) }
+            if let t = UTType("com.r3dc0d4.arsivci.archive") { types.append(t) }
             for ext in Formats.openable { if let t = UTType(filenameExtension: ext) { types.append(t) } }
             panel.allowedContentTypes = types
             panel.allowsOtherFileTypes = true

@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Derleme ve kurulum
-#   ./build.sh                 → GitHub sürümü (build/MacRAR.app), Developer ID varsa onunla imzalı
+#   ./build.sh                 → GitHub sürümü (build/Arşivci.app), Developer ID varsa onunla imzalı
 #   ./build.sh install         → GitHub sürümünü /Applications'a kurar, Finder hızlı eylemlerini yükler
 #   ./build.sh appstore        → App Store sürümü (build/Easy Mac Archiver.app), yerel test için sandbox'lı ad-hoc imza
 #   ./build.sh appstore-test-install → App Store sürümünü yerel test için /Applications'a kopyalar
@@ -24,7 +24,7 @@ if [[ $VARIANT == appstore ]]; then
   SWIFT_FLAGS=(-D APPSTORE)
   VERSION="${APPSTORE_VERSION:-1.0}"; BUILDNUM="${APPSTORE_BUILD:-1}"
 else
-  APPNAME="MacRAR"; EXEC="MacRAR"; BUNDLE_ID="com.mesut.macrar"
+  APPNAME="Arşivci"; EXEC="Arsivci"; BUNDLE_ID="com.r3dc0d4.arsivci"
   SWIFT_FLAGS=()
 fi
 APP="$BUILD/$APPNAME.app"
@@ -59,7 +59,7 @@ echo "▸ Swift derleniyor (arm64 + x86_64)"
 for arch in arm64 x86_64; do
   swiftc -O -swift-version 5 -target $arch-apple-macos13.0 "${SWIFT_FLAGS[@]}" \
     -framework AppKit -framework UniformTypeIdentifiers -framework Quartz \
-    -module-name MacRAR Sources/*.swift -o "$BUILD/obj/$EXEC-$arch"
+    -module-name Arsivci Sources/*.swift -o "$BUILD/obj/$EXEC-$arch"
 done
 lipo -create "$BUILD/obj/$EXEC-arm64" "$BUILD/obj/$EXEC-x86_64" -output "$APP/Contents/MacOS/$EXEC"
 
@@ -111,16 +111,20 @@ echo "✔ Derlendi: $APP"
 
 if [[ "$1" == "install" ]]; then
   echo "▸ /Applications'a kopyalanıyor"
-  if pgrep -xq MacRAR; then
-    echo "  MacRAR şu anda çalışıyor (devam eden bir işlem olabilir). Kapanması bekleniyor…"
-    while pgrep -xq MacRAR; do sleep 5; done
+  if pgrep -xq Arsivci; then
+    echo "  Arşivci şu anda çalışıyor (devam eden bir işlem olabilir). Kapanması bekleniyor…"
+    while pgrep -xq Arsivci; do sleep 5; done
   fi
-  rm -rf /Applications/MacRAR.app
-  cp -R "$APP" /Applications/MacRAR.app
-  /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -f /Applications/MacRAR.app >/dev/null 2>&1 || true
+  # Başka bir Arşivci kurulumunu otomatik silmeyelim. Yükseltme daha sonra ayrı ele alınacak.
+  if [[ -e "/Applications/Arşivci.app" ]]; then
+    echo "✘ /Applications/Arşivci.app zaten var; üzerine yazılmadı."
+    exit 1
+  fi
+  cp -R "$APP" "/Applications/Arşivci.app"
+  /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -f "/Applications/Arşivci.app" >/dev/null 2>&1 || true
   echo "▸ Finder hızlı eylemleri kuruluyor"
-  /Applications/MacRAR.app/Contents/MacOS/MacRAR --install-quick-actions
-  echo "✔ Kuruldu: /Applications/MacRAR.app"
+  "/Applications/Arşivci.app/Contents/MacOS/Arsivci" --install-quick-actions
+  echo "✔ Kuruldu: /Applications/Arşivci.app"
 elif [[ "$1" == "appstore-test-install" ]]; then
   rm -rf "/Applications/$APPNAME.app"; cp -R "$APP" "/Applications/$APPNAME.app"
   /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -f "/Applications/$APPNAME.app" >/dev/null 2>&1 || true

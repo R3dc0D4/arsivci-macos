@@ -11,7 +11,7 @@ enum QuickActions {
     }
 
     static let archiveTypes = [
-        "com.rarlab.rar-archive", "com.mesut.macrar.archive", "public.zip-archive", "org.7-zip.7-zip-archive",
+        "com.rarlab.rar-archive", "com.r3dc0d4.arsivci.archive", "public.zip-archive", "org.7-zip.7-zip-archive",
         "public.tar-archive", "org.gnu.gnu-zip-archive", "org.gnu.gnu-zip-tar-archive", "public.bzip2-archive",
         "org.tukaani.xz-archive", "public.archive", "com.microsoft.cab-archive", "public.iso-image", "com.sun.java-archive",
     ]
@@ -20,14 +20,14 @@ enum QuickActions {
     static var actions: [Action] {
         [
             // Üst seviye (Servis)
-            Action(name: L("MacRAR ile Aç"), flag: nil, topLevel: true, fileTypes: archiveTypes),
-            Action(name: L("MacRAR: Buraya Çıkart"), flag: "--extract-here", topLevel: true, fileTypes: archiveTypes),
-            Action(name: L("MacRAR: Klasöre Çıkart"), flag: "--extract-folder", topLevel: true, fileTypes: archiveTypes),
-            Action(name: L("MacRAR ile Sıkıştır…"), flag: "--compress-dialog", topLevel: true, fileTypes: anyType),
+            Action(name: L("Arşivci ile Aç"), flag: nil, topLevel: true, fileTypes: archiveTypes),
+            Action(name: L("Arşivci: Buraya Çıkart"), flag: "--extract-here", topLevel: true, fileTypes: archiveTypes),
+            Action(name: L("Arşivci: Klasöre Çıkart"), flag: "--extract-folder", topLevel: true, fileTypes: archiveTypes),
+            Action(name: L("Arşivci ile Sıkıştır…"), flag: "--compress-dialog", topLevel: true, fileTypes: anyType),
             // Hızlı Eylemler alt menüsü
-            Action(name: L("MacRAR • Şuraya Çıkart…"), flag: "--extract-to", topLevel: false, fileTypes: archiveTypes),
-            Action(name: L("MacRAR • Test Et"), flag: "--test", topLevel: false, fileTypes: archiveTypes),
-            Action(name: L("MacRAR • Hızlı Sıkıştır"), flag: "--compress", topLevel: false, fileTypes: anyType),
+            Action(name: L("Arşivci • Şuraya Çıkart…"), flag: "--extract-to", topLevel: false, fileTypes: archiveTypes),
+            Action(name: L("Arşivci • Test Et"), flag: "--test", topLevel: false, fileTypes: archiveTypes),
+            Action(name: L("Arşivci • Hızlı Sıkıştır"), flag: "--compress", topLevel: false, fileTypes: anyType),
         ]
     }
 
@@ -41,12 +41,11 @@ enum QuickActions {
         let appPath = Bundle.main.bundlePath
         let fm = FileManager.default
         try? fm.createDirectory(atPath: servicesDir, withIntermediateDirectories: true)
-        // Eski sürümleri temizle
-        if let items = try? fm.contentsOfDirectory(atPath: servicesDir) {
-            for i in items where i.hasPrefix("RAR • ") || i.hasPrefix("MacRAR • ") || i.hasPrefix("MacRAR ile ") || i.hasPrefix("MacRAR: ")
-                || i.hasPrefix("Open with MacRAR") || i.hasPrefix("Compress with MacRAR") {
-                try? fm.removeItem(atPath: (servicesDir as NSString).appendingPathComponent(i))
-            }
+        // Yalnızca Arşivci'nin tam adı eşleşen eylemlerini yenile.
+        // Başka uygulamaların servislerine dokunma.
+        for action in actions {
+            let existing = (servicesDir as NSString).appendingPathComponent(action.name + ".workflow")
+            if fm.fileExists(atPath: existing) { try? fm.removeItem(atPath: existing) }
         }
         var count = 0
         for a in actions {

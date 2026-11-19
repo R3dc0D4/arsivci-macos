@@ -2,7 +2,7 @@ import AppKit
 
 /// Uygulama kimliği (GitHub sürümü "MacRAR", App Store sürümü "Easy Mac Archiver")
 enum AppInfo {
-    static let name: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "MacRAR"
+    static let name: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String ?? "Arşivci"
     static var isAppStore: Bool {
         #if APPSTORE
         return true

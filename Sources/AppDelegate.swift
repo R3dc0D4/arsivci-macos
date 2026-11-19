@@ -420,9 +420,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     // MARK: Yardım
 
-    static let repoURL = URL(string: "https://github.com/mstcvk/MacRAR")!
+    static let repoURL = URL(string: "https://github.com/R3dc0D4/arsivci-macos")!
     @objc func openHelp(_ sender: Any?) {
-        NSWorkspace.shared.open(Self.repoURL.appendingPathComponent(L10n.isTurkish ? "blob/main/README.tr.md" : "blob/main/README.md"))
+        NSWorkspace.shared.open(Self.repoURL.appendingPathComponent("blob/main/README.md"))
     }
     @objc func openReleaseNotes(_ sender: Any?) { NSWorkspace.shared.open(Self.repoURL.appendingPathComponent("releases")) }
     @objc func reportIssue(_ sender: Any?) { NSWorkspace.shared.open(Self.repoURL.appendingPathComponent("issues/new")) }
@@ -433,7 +433,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         let credits = NSMutableAttributedString()
         let para = NSMutableParagraphStyle(); para.alignment = .center
         let base: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: 12), .foregroundColor: NSColor.labelColor, .paragraphStyle: para]
-        credits.append(NSAttributedString(string: L("Geliştirici: Mesut Çevik\n"), attributes: base))
+        credits.append(NSAttributedString(string: "Arşivci · github.com/R3dc0D4/arsivci-macos\n\n", attributes: base))
+        credits.append(NSAttributedString(string: L("Orijinal geliştirici: Mesut Çevik\n"), attributes: base))
         var link = base
         link[.link] = URL(string: "https://github.com/mstcvk/MacRAR")!
         link[.foregroundColor] = NSColor.linkColor
@@ -443,7 +444,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         NSApp.orderFrontStandardAboutPanel(options: [
             .credits: credits,
             .applicationName: AppInfo.name,
-            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "© 2026 Mesut Çevik",
+            NSApplication.AboutPanelOptionKey(rawValue: "Copyright"): "Arşivci contributors · MacRAR © 2026 Mesut Çevik",
         ])
     }
 
