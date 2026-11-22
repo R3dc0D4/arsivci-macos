@@ -2,7 +2,7 @@
 
 Windows'taki WinRAR'ın pratik arşiv işlevlerini macOS'un doğal arayüzüyle birleştirmeyi amaçlayan açık kaynak bir arşiv yöneticisi.
 
-> **Durum: v0.1.0 erken test sürümü.** Proje [MacRAR](https://github.com/mstcvk/MacRAR) temel alınarak geliştirilir. M4 üzerinde uygulama ve Finder eylemleri çalışıyor; DMG/ZIP dağıtım paketleri hazır. Apple Developer ID ile imzalanmış ve noter onaylı genel sürüm henüz yok.
+> **Durum: v0.1.0 erken test sürümü.** Proje [MacRAR](https://github.com/mstcvk/MacRAR) temel alınarak geliştirilir. M4 üzerinde uygulama ve Finder eylemleri çalışıyor; [v0.1.0 test sürümü GitHub Releases'ta yayımlandı](https://github.com/R3dc0D4/arsivci-macos/releases/tag/v0.1.0). Apple Developer ID ile imzalanmış ve noter onaylı genel sürüm henüz yok.
 
 ## Hedefler
 
@@ -41,7 +41,7 @@ Bu paket **ad-hoc imzalı ve Apple notarizasyonu olmayan bir test sürümüdür*
 - [x] DMG + ZIP + SHA-256 test paketleri
 - [ ] Özgün Arşivci simgesi
 - [ ] Arşivi klasör benzeri pencerede açma deneyiminin iyileştirilmesi
-- [ ] GitHub v0.1.0 ön sürüm yayını
+- [x] GitHub v0.1.0 ön sürüm yayını
 - [ ] Apple Developer ID imzası ve notarizasyon
 
 ## Lisans ve atıf
